@@ -6,72 +6,9 @@ import fb from '../../logos/fb.png';
 import "./CreateAccount.css"
 import Navbar from '../Shared/Navbar/Navbar';
 function CreateAccount() {
-    const[user,setuser]=useState({
-
-        email:'',
-        password:'',
-        error:'',
-        success:false
+    const handleSubmit=()=>{
         
-        
-        
-        
-        })
-    
-      const [loguser,setloguser]=useContext(usercontex);
-      const history =useHistory();
-      const location=useLocation();
-      const { from } = location.state || { from: { pathname: "/search" } };
-
-    const handleChange =(e)=>{
-     
-        let isFormValid ;
-
-        if(e.target.name==='email'){
-           isFormValid = /\S+@\S+\.\S/.test(e.target.value)
-        }
-
-        if(e.target.name==='password'){
-
-          isFormValid =e.target.value.length > 6;
-       
-
-        }
-        if (isFormValid){
-
-          const newuser ={...user};
-  newuser[e.target.name]=e.target.value;
-  setuser(newuser);
-          }
-        
-
-
-      }
-
-    const haldlesubmit =(e)=>{
-        if(user.email && user.password){
-          firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-          .then (res=>{
-            const newuser ={...user}
-            newuser.error='';
-            newuser.success = true;
-            setuser(newuser)
-          })
-          
-          .catch(error=>{
-            const newuser ={...user}
-            newuser.error=error.message;
-            newuser.success = false;
-            setuser(newuser);
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        
-          });
-        }
-e.preventDefault();
-
-
-      }
+    }
     return (
         <div>
 <Navbar></Navbar>
