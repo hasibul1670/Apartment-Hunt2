@@ -1,0 +1,13 @@
+.header-main{
+  
+    height: 396px;
+    background:linear-gradient(0deg, rgba(0, 0,0, 0.75), rgba(0, 0, 0, 0.65)),  url("../../../images/back.png");
+    background-size:cover;
+  
+}
+
+
+.header-main h1{
+color: white;
+
+}
